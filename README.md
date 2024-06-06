@@ -77,21 +77,21 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - Overall, stable learning for all configurations
     - Greater nTiles reduces noise but both perform similarly
     -  Increasing nTilings more effective at improving stability than increasing nTiles
-
-    <figure align="left" style="display: table;">
-        <img src="plots/linear_learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
-        <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves for linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) on Cart-Pole for 1000 episodes (max. episode length: 1000) at optimized α (step-size) and λ (decay-rate).</i></figcaption>
-    </figure>
     
+<figure align="left" style="display: table;">
+    <img src="plots/linear_learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600" />
+    <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves for linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) on Cart-Pole for 1000 episodes (max. episode length: 1000) at optimized α (step-size) and λ (decay-rate).</i></figcaption>
+</figure>
+&nbsp;
 
 2. **Finding:** No issues of greater sensitivity of Accumulate Sarsa($\lambda$) are visible. 
     - The Pseudo-Learning-Rate issue as characterized by van Seijen et al. (2016) appears to be prevented by sufficient sparsity of the tile-coded feature, avoiding excessive gradient-accumulation for Accumulate Sarsa($\lambda$).
     - Accumulate Sarsa($\lambda$) appears even more stable than Forward Sarsa($\lambda$), potentially due to its fully incremental nature compared with the delayed, truncated $\lambda$-return target of Forward Sarsa($\lambda$).
 
-    <figure align="left" style="display: table;">
-        <img src="plots/linear_lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
-        <figcaption style="display: table-caption; caption-side: bottom ;"><i>Sensitivity of linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) to varying decay-rate λ at optimized α (top row) and varying step-size at optimal λ (bottom row).</i></figcaption>
-    </figure>
+<figure align="center" style="display: table;">
+    <img src="plots/linear_lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
+    <figcaption style="display: table-caption; caption-side: bottom ;"><i>Sensitivity of linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) to varying decay-rate λ at optimized α (top row) and varying step-size at optimal λ (bottom row).</i></figcaption>
+</figure>
 
 ### Non-Linear Models - Cont. Features 
 3. **Finding:** Instabilities persist even in best-performing configurations but there are clear differences in performance between network architectures and algorithms.
