@@ -135,7 +135,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - Greater nTilings appears to improve stability like in linear setting
     - Significantly lower PI and RR at initialization compared to continuous features. Metrics evolve much differently compared to case of continuous features, climbing up to a plateau largely in sync with the learning curve.
     - In addition to the levels of the interference metrics, which are similar to the ones seen for continuous inputs, it should be considered _how_ generalization occurs. When visualizing the hidden-layer activations (see e.g., Ghiassian et al., 2020), tile-coded features show much improved locality of the learned representations, allowing the model to discriminate more finely. 
-
+   ![](/plots/learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg)
     <figure align="left" style="display: table;">
         <img src="../main/plots/learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves and interference metrics for best-performing configurations of ReLu and Tanh networks using tile-coded features.</i></figcaption>
