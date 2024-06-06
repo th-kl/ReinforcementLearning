@@ -124,7 +124,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - Forward Sarsa(λ) less sensitive to α
 
     <figure align="left" style="display: table;">
-        <img src="../blob/main/plots/lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
+        <img src="../main/plots/lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Sensitivity of average score on Cart-Pole to values of λ at optimized α (top row) and to values of α at optimized λ. Maximum episode length of 1000 steps.</i></figcaption>
     </figure>
 
