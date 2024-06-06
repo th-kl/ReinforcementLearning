@@ -79,7 +79,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     -  Increasing nTilings more effective at improving stability than increasing nTiles
 
     <figure align="left" style="display: table;">
-        <img src="./plots/linear_learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
+        <img src="../plots/linear_learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves for linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) on Cart-Pole for 1000 episodes (max. episode length: 1000) at optimized α (step-size) and λ (decay-rate).</i></figcaption>
     </figure>
     
@@ -89,7 +89,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - Accumulate Sarsa($\lambda$) appears even more stable than Forward Sarsa($\lambda$), potentially due to its fully incremental nature compared with the delayed, truncated $\lambda$-return target of Forward Sarsa($\lambda$).
 
     <figure align="left" style="display: table;">
-        <img src="./plots/linear_lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
+        <img src="../plots/linear_lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Sensitivity of linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) to varying decay-rate λ at optimized α (top row) and varying step-size at optimal λ (bottom row).</i></figcaption>
     </figure>
 
@@ -97,7 +97,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
 3. **Finding:** Instabilities persist even in best-performing configurations but there are clear differences in performance between network architectures and algorithms.
     
     <figure align="left" style="display: table;">
-        <img src="./plots/sarsa_vs_forward_variance_learning_curves.jpg" width="600">
+        <img src="../plots/sarsa_vs_forward_variance_learning_curves.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves for best-performing configurations with continuous inputs (scaled, no Tile Coding). Strong line shows average across 5 trials (smoothing with window size 10), weak lines show individual trials.</i></figcaption>
     </figure>
 
@@ -108,12 +108,12 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - Unrecoverable, catastrophic forgetting apparent for ReLu networks (see top row of second figure below: two examples highlighted in purple)
     
     <figure align="left" style="display: table;">
-        <img src="./plots/learning_curves_sarsa_vs_forward_sarsa.jpg" width="600">
+        <img src="../plots/learning_curves_sarsa_vs_forward_sarsa.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Average score (top row) and interference metrics (bottom row) on Cart-Pole for best-performing ReLu and Tanh configurations.</i></figcaption>
     </figure>
     
     <figure align="left" style="display: table;">
-        <img src="./plots/relu_vs_tanh_episode_len.jpg" width="600">
+        <img src="../plots/relu_vs_tanh_episode_len.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Forward Sarsa learning curves with varying maximum episode lengths and comparing ReLu and Tanh activations, all else equal. Purple highlighted learning curves in upper row show trials where catastrophic forgetting is apparent.</i></figcaption>
     </figure>
 
@@ -124,7 +124,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - Forward Sarsa(λ) less sensitive to α
 
     <figure align="left" style="display: table;">
-        <img src="./plots/lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
+        <img src="../blob/main/plots/lamda_step_size_sensitivity_sarsa_vs_forward.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Sensitivity of average score on Cart-Pole to values of λ at optimized α (top row) and to values of α at optimized λ. Maximum episode length of 1000 steps.</i></figcaption>
     </figure>
 
@@ -137,7 +137,7 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     - In addition to the levels of the interference metrics, which are similar to the ones seen for continuous inputs, it should be considered _how_ generalization occurs. When visualizing the hidden-layer activations (see e.g., Ghiassian et al., 2020), tile-coded features show much improved locality of the learned representations, allowing the model to discriminate more finely. 
 
     <figure align="left" style="display: table;">
-        <img src="./plots/learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
+        <img src="../main/plots/learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
         <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves and interference metrics for best-performing configurations of ReLu and Tanh networks using tile-coded features.</i></figcaption>
     </figure>
 
