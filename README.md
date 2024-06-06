@@ -72,19 +72,20 @@ The following graphs display the empirical results reported in the paper for the
 The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![requirements.txt](/requirements.txt)), which provides environment implementations for a range of standard reinforcement learning problems (Towers, 2023). To create the tile-coded features, the open-source implementation of R. Sutton was used, which is available at: <http://incompleteideas.net/tiles/tiles3.html>. The results for the linear models are averaged across three independent trials each, the results for the non-linear models across five independent trials each.
 
 ### Linear Models
-
-<ins>(1) **Finding:** Linear TD-learning displays stable learning under both AS($\lambda$) and FS($\lambda$):</ins>
+#### 1. **Finding:** Linear TD-learning displays stable learning under both Accumulate Sarsa($\lambda$) and Forward Sarsa($\lambda$)
 - Overall, stable learning for all configurations
 - Greater nTiles reduces noise but both perform similarly
 -  Increasing nTilings more effective at improving stability than increasing nTiles
 
-<figure align="left" style="display: table;">
+<figure align="left">
     <img src="plots/linear_learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
-    <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves for linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) on Cart-Pole for 1000 episodes (max. episode length: 1000) at optimized α (step-size) and λ (decay-rate).<br/></i></figcaption>
+    <figcaption><i>Learning curves for linear Accumulate Sarsa(λ) and linear Forward Sarsa(λ) on Cart-Pole for 1000 episodes (max. episode length: 1000) at optimized α (step-size) and λ (decay-rate).<br/></i></figcaption>
 </figure>
 &nbsp;
 
-<ins>(2) **Finding:** No issues of greater sensitivity of Accumulate Sarsa($\lambda$) are visible.</ins>
+---
+
+#### 2. **Finding:** No issues of greater sensitivity of Accumulate Sarsa($\lambda$) are visible.
 - The Pseudo-Learning-Rate issue as characterized by van Seijen et al. (2016) appears to be prevented by sufficient sparsity of the tile-coded feature, avoiding excessive gradient-accumulation for Accumulate Sarsa($\lambda$).
 - Accumulate Sarsa($\lambda$) appears even more stable than Forward Sarsa($\lambda$), potentially due to its fully incremental nature compared with the delayed, truncated $\lambda$-return target of Forward Sarsa($\lambda$).
 
@@ -94,8 +95,11 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
 </figure>
 &nbsp;
 
+---
+
 ### Non-Linear Models - Cont. Features 
-<ins>(3) **Finding:** Instabilities persist even in best-performing configurations but there are clear differences in performance between network architectures and algorithms.</ins>
+
+#### 3. **Finding:** Instabilities persist even in best-performing configurations but there are clear differences in performance between network architectures and algorithms.
     
 <figure align="left" style="display: table;">
     <img src="plots/sarsa_vs_forward_variance_learning_curves.jpg" width="600">
@@ -103,7 +107,9 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
 </figure>
 &nbsp;
 
-<ins>(4) **Finding:** Tanh outperforms ReLu by far, displaying much more stable learning overall</ins>
+---
+
+#### 4. **Finding:** Tanh outperforms ReLu by far, displaying much more stable learning overall
 - ReLu consistently displays much higher values of PI and much greater learning instabilities
 - For Tanh, Forward Sarsa($\lambda$) performs better than Accumulate Sarsa($\lambda$) despite higher PI
 - RR less clearly interpretable}, especially for FS($\lambda$)
@@ -121,7 +127,9 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
 </figure>
 &nbsp;
 
-<ins>(5) **Finding:** Forward Sarsa($\lambda$) offers a more robust update target than Accumulate Sarsa($\lambda$) for the non-linear setting</ins>
+---
+
+#### 5. **Finding:** Forward Sarsa($\lambda$) offers a more robust update target than Accumulate Sarsa($\lambda$) for the non-linear setting
 - Forward Sarsa(λ) outperforms Accumulate Sarsa(λ) for λ > 0 with a widening gap
 - Pseudo-learning-rate issue (van Seijen et al., 2016) pronounced for Accumulate Sarsa(λ), causing a steady deterioration in performance for growing λ
 - Both show drop at λ = 1, in line with characterization of MC-return.
@@ -133,9 +141,11 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
 </figure>
 &nbsp;
 
+---
+
 ### Non-Linear Models - Tile-coded Features
 
-<ins>(6) **Finding:** Much improved stability under tile-coded features both for Tanh and ReLu</ins>
+#### 6. **Finding:** Much improved stability under tile-coded features both for Tanh and ReLu
 - Tanh remains noticeably less noisy than ReLu despite much narrower performance gap
 - Greater nTilings appears to improve stability like in linear setting
 - Significantly lower PI and RR at initialization compared to continuous features. Metrics evolve much differently compared to case of continuous features, climbing up to a plateau largely in sync with the learning curve.
@@ -145,6 +155,8 @@ The tests were conducted in `Python 3.11.2` using the gymnasium library (see ![r
     <img src="plots/learning_curves_sarsa_vs_forward_sarsa_tilecoding.jpg" width="600">
     <figcaption style="display: table-caption; caption-side: bottom ;"><i>Learning curves and interference metrics for best-performing configurations of ReLu and Tanh networks using tile-coded features.<br/></i></figcaption>
 </figure>
+
+---
 
 
 ### Tested Hyperparameters
