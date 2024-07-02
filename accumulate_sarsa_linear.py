@@ -71,7 +71,7 @@ def linear_sarsa(params):
             
             a_t1, q_t1 = agent.epsilon_greedy_action(s_t1)
             
-            if terminated: # if goal state reached (truncated -> early ending; terminated -> max episode length reached)
+            if terminated: # if goal state reached (truncated -> time limit reached; terminated -> failed)
                 q_t1 = 0
             
             s_t_a_t = agent.create_input_tensor(s_t, a_t)

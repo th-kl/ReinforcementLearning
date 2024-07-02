@@ -106,7 +106,7 @@ def sarsa_multinet(params):
             
             a_t1, q_t1 = agent.epsilon_greedy_action(s_t1)
 
-            if terminated: # if goal state reached (terminated -> goal; truncated -> manually stopped)
+            if terminated: # if goal state reached (truncated -> time limit reached; terminated -> failed)
                 q_t1 = tf.zeros(1,)
             
             q_target = r_t1 + agent.gamma * q_t1
